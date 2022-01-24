@@ -12,9 +12,15 @@ class RadarProgress extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Lottie.asset('assets/radar.json'),
-         SizedBox(height: 8,),
-        Text(textLoading, style: TextStyle( color: Colors.black26),)
+        Center(
+          child: SizedBox(
+            height: 300,
+            width: 300,
+            child: Lottie.asset('assets/mapSearch.json')
+          ),
+        ),
+        SizedBox(height: 8,),
+        Center(child: Text(textLoading, style: TextStyle( color: Colors.black26),))
       ],
     );
   }

@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
       drawer: DrawerList(),
       appBar: AppBar(
         backgroundColor: Color(0xff009fe3),
-        elevation: 2,
+        elevation: 1,
         title: Text("Hola Armando")),
       body: GridCategory()
     );

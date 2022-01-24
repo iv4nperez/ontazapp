@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ontaz/models/category_model.dart';
+import 'package:ontaz/providers/category_current.dart';
 import 'package:ontaz/services/category_service.dart';
+import 'package:provider/provider.dart';
 import 'RadarProgress.dart';
-import 'dart:math';
+
 
 class GridCategory extends StatefulWidget {
   @override
@@ -92,8 +94,9 @@ class _GridCategoryState extends State<GridCategory> {
 
 Widget createContainer(BuildContext context, int color, Category item) {
 
-  return Card(
+  final _categoryProvider = Provider.of<CategoryCurrent>(context);
 
+  return Card(
     elevation: 0,
     shape: RoundedRectangleBorder(
       side: BorderSide(color: Colors.grey.withOpacity(0.2), width: 1),
@@ -105,7 +108,10 @@ Widget createContainer(BuildContext context, int color, Category item) {
       ),
       onTap: (){
 
-        Navigator.pushNamed(context, 'category_list_page');
+        _categoryProvider.idCategory    = item.idCategory;
+        _categoryProvider.nameCategory  = item.nameCategory;
+
+        Navigator.pushNamed(context, 'category_list');
 
       },
       child: Column(

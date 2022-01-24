@@ -6,9 +6,9 @@ import 'package:ontaz/models/service_model.dart';
 class ServiceService {
 
   final String _baseUrl = "https://applicationweb.azurewebsites.net";
-  Future<List<Service>> getListServices() async {
+  Future<List<Service>> getListServices(int idCategory) async {
 
-    const _path = '/api/Service?IdCategory=1';
+    var _path = '/api/Service?IdCategory=$idCategory';
     Uri uri = Uri.parse(_baseUrl + _path);
 
     final result = await http.get(uri);
